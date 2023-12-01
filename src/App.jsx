@@ -2,9 +2,10 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Input from './components/Input';
 import TaskList from './components/TaskList';
+ 
 
 function App() {
-  const [tasks, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
   
   // Funcion para agregar una nueva tarea, recibe la descripcion que 
   // viene del evento que se dispara cuando le damos "Crear" en el 
@@ -15,21 +16,36 @@ function App() {
       description: description,
       isCompleted: false,
       };
-      setTask([...tasks, newTask]);
+      setTasks([...tasks, newTask]);
       
   };
 
   //todo: Funcion  para borrar una tarea habiendo recibido el ID.
-  const handleDeleteTask = (id) => {
-    // borrar una tarea que coincida con el id   
-  };
-
+  // borrar una tarea que coincida con el id   
+  const handleDelete = (id) => {
+      const remainingTasks = tasks.filter(t=> t.id !== id);
+      setTasks([...remainingTasks]);
+    };
   
+  // funcion que cambia el valor de isComplited. de pendiente a realizado.
+  const handleChangeStatus =(id)=> {
+    const modifiedTasks = tasks.map (t=>
+      t.id === id?
+      {...t, isCompleted: !t.isCompleted}
+      :
+      t
+      )
+      setTasks([...modifiedTasks])
+   }; 
+
+
   return (
     <> 
     <h1>Lista de Tareas</h1>
     <Input onAddTask={(description) => handleAddTask (description) }></Input>    
-    <TaskList tasks={tasks}/>
+    <TaskList 
+    onDeleteTasks={(id)=>handleDelete(id)} tasks={tasks}
+    onChangeStatus={(id)=> handleChangeStatus(id)} />
     </>
     )
 }
