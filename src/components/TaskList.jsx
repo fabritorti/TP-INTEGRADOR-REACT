@@ -1,25 +1,27 @@
-import { Button } from "bootstrap";
-import { CiTrash } from "react-icons/ci";
-import { CiCircleCheck } from "react-icons/ci";
+//*COMPONENTE TASKLIST*//
+import './TaskList.css';
+import '../App.css' ; 
 
+import Task from './Task';
 
-function TaskList({tasks, onDeleteTasks, onChangeStatus}) {
-      
-  
+function TaskList ({tasks, onDeleteTasks, onChangeStatus}) {
+        
   return (
-    <>
-    <div>
-        <ul>
-            {tasks.map(t=> <li key={t.id}
-            style={t.isCompleted?{textDecoration:"line-through", color: "lightgray"}:undefined}
-            >{t.id.slice(-3)} - {t.description} - {t.isCompleted? "Listo" : "Pendiente"}
-            <CiTrash size={25} color="red" className="icons" onClick={()=> onDeleteTasks(t.id)}/>
-            <CiCircleCheck size={25} color="red" className="icons" onClick={()=>onChangeStatus(t.id)}/>
- </li>)}
-        </ul>
-    </div>
-    </>
-  );
+        <table>
+          <thead>
+            <tr>
+            <th> Ref</th>
+            <th> TAREA </th>
+            <th> BORRAR </th>
+            <th> COMPLETAR </th>
+            </tr>          
+          </thead> 
+
+          <tbody>
+            {tasks.map(t => <Task key={t.id} task={t} onDeleteTasks={onDeleteTasks} onChangeStatus={onChangeStatus}/>)}
+          </tbody>
+        </table>
+    );
   
 };
 

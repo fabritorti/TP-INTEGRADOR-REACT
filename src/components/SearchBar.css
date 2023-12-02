@@ -1,0 +1,29 @@
+/* App.css o Search.css */
+
+form {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-bottom: solid 2px black;
+  }
+  
+  input[type='search'] {
+    
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 768px) {
+    input[type='search'] {
+      font-size: 18px;
+      padding: 10px;
+    }
+  }
+  

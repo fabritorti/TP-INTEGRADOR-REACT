@@ -1,5 +1,10 @@
+//* COMPONENTE TASKFORM *//
+import './Input.css';
+// import '../App.css' ;
+
+
 function Input({ onAddTask }) {
-  
+      
     const handleSubmit =(e) => {
       e.preventDefault();
       const todoForm = new FormData(e.target);
@@ -11,10 +16,16 @@ function Input({ onAddTask }) {
       return (
       <form onSubmit={handleSubmit}>
           <label htmlFor="description">Nueva Tarea:</label>
-          <input type="text" name="description" id="description" placeholder="Ir al gimnasio" required/>
-          <input type="submit" value="+" />
+          <input 
+          type="text"
+          name="description"
+          id="description"
+          placeholder="Ir al gimnasio"
+          required
+          />
+          <input type="submit" value="+"/>
       </form>
-    )
+      );
   }
   
   export default Input; 

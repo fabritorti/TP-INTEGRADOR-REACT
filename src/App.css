@@ -1,3 +1,26 @@
-.icons:hover{
-    cursor:pointer
+*{  
+    margin: 1%;
+    padding: 1%;
+    font-family:'Lucida Sans', sans-serif; ;    
+    .completed {
+        text-decoration: line-through;
+        color: darkgoldenrod;
+    }; 
+   
+    .TituloApp {
+        font-size:xx-large;
+        align-items: center;
+        text-align: center;
+        border-bottom: solid 2px black;
+    }
 }
+
+
+.icons:hover{ 
+        cursor:pointer
+    }; 
+    
+.icons .TaskList:hover{
+        
+        cursor: pointer;
+        };

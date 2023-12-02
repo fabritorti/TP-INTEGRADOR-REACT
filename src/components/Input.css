@@ -1,0 +1,50 @@
+/* Input.css */
+
+form {
+    max-width: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    width: 120px;
+    margin-right: 1px;
+    font-weight:bold;
+  }
+  
+  input[type='text'] {
+    flex: 2;
+    padding: 2px;
+    font-size: 18px;
+    border: 2.5px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type='submit'] {
+    padding: 10px;
+    background-color: #007bff;
+    color: whitesmoke;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type='submit']:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    label {
+      font-size: 14px;
+    }
+  
+    input[type='text'],
+    input[type='submit'] {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+  
